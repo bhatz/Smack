@@ -61,10 +61,8 @@ public final class Message extends Stanza implements TypedCloneable<Message> {
     private Type type;
     private String thread = null;
 
-    /************ Okue code start ***/
     private String mime;
     private long ts;
-    /************ Okue code end ***/
 
     private final Set<Subject> subjects = new HashSet<Subject>();
     private final Set<Body> bodies = new HashSet<Body>();
@@ -406,7 +404,6 @@ public final class Message extends Stanza implements TypedCloneable<Message> {
     }
 
 
-    /************ Okue code start ***/
     public String getMime() {
       return mime;
     }
@@ -422,7 +419,6 @@ public final class Message extends Stanza implements TypedCloneable<Message> {
     public void setTs(long ts) {
       this.ts = ts;
     }
-  /*********************** Oku code end here ***/
 
     private String determineLanguage(String language) {
 
@@ -455,7 +451,7 @@ public final class Message extends Stanza implements TypedCloneable<Message> {
         }
 
         if(ts != 0) {
-          buf.optAttribute("ts", ts);
+          buf.optAttribute("ts", String.valueOf(ts));
         }
 
         // Add the subject in the default language
